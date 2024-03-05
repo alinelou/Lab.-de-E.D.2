@@ -3,21 +3,10 @@
 
 #include <stdio.h>
 
-struct CaractereASCII {
-    char caractere;
-    int valorASCII;
-};
-
 int main() {
-    struct CaractereASCII caracteres[128];
-
-    for (int i = 0; i < 128; i++) {
-        caracteres[i].caractere = (char)i;
-        caracteres[i].valorASCII = i;
-    }
-
-    for (int i = 0; i < 128; i++) {
-        printf("%c:%3d  ", caracteres[i].caractere, caracteres[i].valorASCII);
+    
+    for (int i = 0; i <= 127; i++) {
+        printf("%3d: %c   ", i, (char)i);
 
         if ((i + 1) % 10 == 0) {
             printf("\n");
