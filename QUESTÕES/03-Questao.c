@@ -6,15 +6,26 @@
 
 #include <stdio.h>
 
+struct TriploPitagorico {
+    int cateto1;
+    int cateto2;
+    int hipotenusa;
+};
+
 void encontrarTriplosPitagoricos(int n) {
     printf("Triplos Pitagoricos para valores ate %d:\n", n);
 
     for (int cateto1 = 1; cateto1 <= n; cateto1++) {
         for (int cateto2 = cateto1 + 1; cateto2 <= n; cateto2++) {
-            for (int hipotenusa = cateto2 + 1; hipotenusa <= n; hipotenusa++) {
+            int hipotenusa = cateto2 + 1;  
+
+            
+            while (hipotenusa <= n) {
                 if (cateto1 * cateto1 + cateto2 * cateto2 == hipotenusa * hipotenusa) {
+                    
                     printf("(%d, %d, %d)\n", cateto1, cateto2, hipotenusa);
                 }
+                hipotenusa++;
             }
         }
     }
