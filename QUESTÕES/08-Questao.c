@@ -18,11 +18,9 @@ int inverterDigitos(int numero) {
 int main() {
     int numero;
 
-    
     printf("Digite um numero inteiro: ");
     scanf("%d", &numero);
 
-    
     int resultado = inverterDigitos(numero);
     printf("O numero invertido é: %d\n", resultado);
 
