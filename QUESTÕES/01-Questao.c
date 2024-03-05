@@ -5,38 +5,44 @@
 
 #include <stdio.h>
 
-int A(int m, int n) {
-    if (m == 0) {
-        return n + 1;
-    } else if (m > 0 && n == 0) {
-        return A(m - 1, 1);
-    } else if (m > 0 && n > 0) {
-        return A(m - 1, A(m, n - 1));
-    } else {
-        return -1; 
+#define MAX_NUMEROS 5
+#define MAX_VALOR 30
+
+struct Dados {
+    int numeros[MAX_NUMEROS];
+};
+
+void lerNumeros(struct Dados *dados) {
+    printf("Digite cinco numeros (cada um entre 1 e 30):\n");
+    for (int i = 0; i < MAX_NUMEROS; i++) {
+        do {
+            printf("Digite o %d : ", i + 1);
+            scanf("%d", &dados->numeros[i]);
+
+            if (dados->numeros[i] < 1 || dados->numeros[i] > MAX_VALOR) {
+                printf("Por favor, digite um numero entre 1 e %d.\n", MAX_VALOR);
+            }
+        } while (dados->numeros[i] < 1 || dados->numeros[i] > MAX_VALOR);
     }
 }
 
-void apresentarResultados(int a, int b) {
-    for (int x = 0; x < a; x++) {
-        for (int y = 0; y < b; y++) {
-            printf("A(%d, %d) = %d\n", x, y, A(x, y));
+void imprimirAsteriscos(struct Dados dados) {
+    printf("Linhas de asteriscos:\n");
+    for (int i = 0; i < MAX_NUMEROS; i++) {
+        printf("%d: ", dados.numeros[i]);
+        for (int j = 0; j < dados.numeros[i]; j++) {
+            printf("*");
         }
+        printf("\n");
     }
 }
 
 int main() {
-    int a, b;
+    struct Dados dados;
 
+    lerNumeros(&dados);
 
-    printf("Digite o valor de a: ");
-    scanf("%d", &a);
-
-    printf("Digite o valor de b: ");
-    scanf("%d", &b);
-
-
-    apresentarResultados(a, b);
+    imprimirAsteriscos(dados);
 
     return 0;
 }
