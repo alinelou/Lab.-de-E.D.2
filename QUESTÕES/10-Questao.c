@@ -31,13 +31,11 @@ void apresentarResultados(int a, int b) {
 int main() {
     int a, b;
 
-
     printf("Digite o valor de a: ");
     scanf("%d", &a);
 
     printf("Digite o valor de b: ");
     scanf("%d", &b);
-
 
     apresentarResultados(a, b);
 
